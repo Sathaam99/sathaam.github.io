@@ -35,6 +35,7 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Contact</a>
             <a class="btn btn-secondary" href="#experience">Experience</a>
+            <a class="btn btn-ghost" href="/resume.pdf" download>Download Resume</a>
           </div>
         </div>
         <div class="hero-photo-card">
@@ -107,15 +108,24 @@
         <h2>Projects</h2>
         <div class="projects-grid">
           <article class="project-card">
-            <h3>Playwright QE Framework</h3>
+            <a class="project-link" href="https://github.com/Sathaam99/playwright-framework" target="_blank">
+              <img src="images/projects/playwright.svg" alt="Playwright project" />
+              <h3>Playwright QE Framework</h3>
+            </a>
             <p>End-to-end Playwright framework integrated with CI for flaky test detection and parallel runs.</p>
           </article>
           <article class="project-card">
-            <h3>OCP Pipeline Migration</h3>
+            <a class="project-link" href="https://github.com/Sathaam99/ocp-pipeline-migration" target="_blank">
+              <img src="images/projects/ocp.svg" alt="OCP pipeline" />
+              <h3>OCP Pipeline Migration</h3>
+            </a>
             <p>Migrated pipeline templates from Jenkins to Harness with standardized delivery policies.</p>
           </article>
           <article class="project-card">
-            <h3>AWS Observability</h3>
+            <a class="project-link" href="https://github.com/Sathaam99/aws-observability" target="_blank">
+              <img src="images/projects/aws.svg" alt="AWS observability" />
+              <h3>AWS Observability</h3>
+            </a>
             <p>Realtime logging and security monitoring using CloudWatch, Kinesis and Lambda flows.</p>
           </article>
         </div>
@@ -168,6 +178,16 @@
             <p>LinkedIn</p>
             <a href="https://www.linkedin.com/in/mohammed-sathaam-086a4614b/" target="_blank">linkedin.com/in/mohammed-sathaam-086a4614b</a>
           </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <form id="contact-form" action="https://formspree.io/f/yourFormId" method="POST">
+            <div class="form-row"><label>Name<input name="name" required /></label></div>
+            <div class="form-row"><label>Email<input type="email" name="email" required /></label></div>
+            <div class="form-row"><label>Message<textarea name="message" rows="4" required></textarea></label></div>
+            <div class="form-row"><button class="btn btn-primary" type="submit">Send Message</button>
+              <span id="form-status" aria-live="polite"></span></div>
+          </form>
         </div>
       </section>
     </main>

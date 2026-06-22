@@ -52,4 +52,26 @@ document.addEventListener('DOMContentLoaded', function(){
     const pct = h>0 ? (window.scrollY / h) * 100 : 0;
     prog.style.width = pct + '%';
   }, {passive:true});
+
+  // Contact form submission (Formspree placeholder)
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  if(form){
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const endpoint = form.getAttribute('action');
+      const data = new FormData(form);
+      try{
+        const res = await fetch(endpoint, {method:'POST', body: data, headers: {'Accept':'application/json'}});
+        if(res.ok){
+          status.textContent = 'Message sent — thank you!';
+          form.reset();
+        } else {
+          status.textContent = 'Unable to send — please try mailto:';
+        }
+      } catch(err){
+        status.textContent = 'Network error — try again later.';
+      }
+    });
+  }
 });
