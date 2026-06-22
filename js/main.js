@@ -32,4 +32,24 @@ document.addEventListener('DOMContentLoaded', function(){
     }
     navLinks.forEach((ln,i)=> ln.classList.toggle('active', i===idx));
   });
+
+  // Mobile menu toggle
+  const menuToggle = document.querySelector('.menu-toggle');
+  const siteNav = document.querySelector('.site-nav');
+  if(menuToggle && siteNav){
+    menuToggle.addEventListener('click', ()=>{
+      const open = siteNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  // Scroll progress bar (small thin indicator)
+  const prog = document.createElement('div');
+  prog.id = 'scroll-progress';
+  document.body.appendChild(prog);
+  window.addEventListener('scroll', ()=>{
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = h>0 ? (window.scrollY / h) * 100 : 0;
+    prog.style.width = pct + '%';
+  }, {passive:true});
 });
